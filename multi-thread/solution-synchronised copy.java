@@ -13,16 +13,14 @@ class Main {
 
 class ImportantObject {
     private static ImportantObject single_instance = null;
-    public Object s;
 
     private ImportantObject() {
-        s = new Object();
     }
 
-    public static ImportantObject getInstance() {
+    public static synchronized ImportantObject getInstance() {
         if (single_instance == null) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1000); // this simulates a more "intensive" singleton object
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
@@ -31,3 +29,5 @@ class ImportantObject {
         return single_instance;
     }
 }
+
+// synchronisation is expensive, so this can be non-optimal

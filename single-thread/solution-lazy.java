@@ -19,10 +19,8 @@ class Main {
 
 class ImportantObject {
     private static ImportantObject single_instance = null;
-    public Object s;
 
     private ImportantObject() {
-        s = new Object();
     }
 
     public static ImportantObject getInstance() {
